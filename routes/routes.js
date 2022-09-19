@@ -15,12 +15,12 @@ const UsuariosController = require('../controllers/usuariosController');
 
 // definição das rotas
 router.get('/comentariopost', ComentarioPostController.listarComentarioPost);
-// cadastrar
+router.post('/comentariopost', ComentarioPostController.create);
 // editar
 // excluir
 
 router.get('/curtidapost', CurtidaPostController.listarCurtidaPost);
-// cadastrar
+router.post('/curtidapost', CurtidaPostController.create);
 // editar
 // excluir
 

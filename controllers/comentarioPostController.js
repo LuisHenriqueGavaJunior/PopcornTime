@@ -14,4 +14,16 @@ module.exports = {
             return response.status(500).json({confirma: 'Erro', message: error});
         }
     },
+async create(request, response) {
+    try {
+        const {id_post, id_usuario, comentario_post} = request.body;
+        const sql= 'INSERT INTO comentariospost (id_post, id_usuario, comentario_post) VALUES (?, ?, ?)';
+        const values = [id_post, id_usuario, comentario_post];
+        const confirmacao = await db.query(sql, values);
+        const id_comentario = confirmacao[0].insertId;
+        return response.status(200).json({confirma: 'Sucesso', message: id_comentario});
+    } catch (error) {
+        return response.status(500).json({confirma: 'Erro', message: error});
+    }
+    },
 };
