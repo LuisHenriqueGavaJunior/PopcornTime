@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 // importação dos controlers utilizados nas rotas
-const ComentarioPostController = require('../controllers/comentarioPostController');
+const ComentariosPostController = require('../controllers/comentariosPostController');
 const CurtidaPostController = require('../controllers/curtidaPostController');
 const GenerosController = require('../controllers/generosController');
 const MensagensController = require('../controllers/mensagensController');
@@ -14,14 +14,14 @@ const TitulosUsuariosController = require('../controllers/titulosUsuariosControl
 const UsuariosController = require('../controllers/usuariosController');
 
 // definição das rotas
-router.get('/comentariopost', ComentarioPostController.listarComentarioPost);
-router.post('/comentariopost', ComentarioPostController.create);
-// editar
-// excluir
+router.get('/comentariospost', ComentariosPostController.listarComentariosPost);
+router.post('/comentariospost', ComentariosPostController.create);
+router.patch('/comentariospost/:id_comentario', ComentariosPostController.update);
+router.delete('/comentarisopost/:id_comentario', ComentariosPostController.delete);
 
 router.get('/curtidapost', CurtidaPostController.listarCurtidaPost);
 router.post('/curtidapost', CurtidaPostController.create);
-// editar
+router.delete('/curtidapost/:id_usuario', CurtidaPostController.delete);
 // excluir
 
 router.get('/generos', GenerosController.listarGeneros);
